@@ -21,7 +21,7 @@ You can install VideoSoundAnalyzer from PyPI using `pip`:
 Here's an example of how to use the package:
 
 ```python
-from youtube_downloader import VideoDownloader, AudioExtractor, SoundIntervalAnalyzer
+from youtube_video_analyzer import VideoDownloader, AudioExtractor, SoundIntervalAnalyzer, FrameExtractor
 
 # Download a video from YouTube
 downloader = VideoDownloader(video_url, output_directory)
