@@ -1,6 +1,6 @@
-# youtube_downloader
+# youtube-video-analyzer
 
-VideoSoundAnalyzer is a Python package that allows you to download videos from YouTube, extract audio and frames from local videos, and analyze the intervals where there is sound in the extracted audio.
+youtube-video-analyzer is a Python package that allows you to download videos from YouTube, extract audio and frames from local videos, and analyze the intervals where there is sound in the extracted audio.
 
 ----> [Github](https://github.com/Cornelius-BobCat/package-video-downloader)
 
@@ -14,7 +14,7 @@ VideoSoundAnalyzer is a Python package that allows you to download videos from Y
 
 ## Installation
 
-You can install VideoSoundAnalyzer from PyPI using `pip`:
+You can install youtube-video-analyzer from PyPI using `pip install youtube-video-analyzer`:
 
 ## Usage
 
