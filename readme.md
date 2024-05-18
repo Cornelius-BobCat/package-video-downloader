@@ -2,6 +2,8 @@
 
 VideoSoundAnalyzer is a Python package that allows you to download videos from YouTube, extract audio and frames from local videos, and analyze the intervals where there is sound in the extracted audio.
 
+----> [Github](https://github.com/Cornelius-BobCat/package-video-downloader)
+
 ## Features
 
 - Download videos from YouTube

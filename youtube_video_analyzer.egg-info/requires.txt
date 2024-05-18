@@ -1,5 +1,0 @@
-pytube
-moviepy
-librosa
-imageio
-numpy
