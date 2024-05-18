@@ -1,0 +1,7 @@
+.env
+setup.py
+dist
+build
+youtube_video_downloader.egg-info
+*.log
+*.tmp
