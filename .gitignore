@@ -1,7 +1,7 @@
 .env
 setup.py
-dist
-build
-youtube_video_analyzer.egg-info
+dist/*
+build/*
+youtube_video_analyzer.egg-info/*
 *.log
 *.tmp
