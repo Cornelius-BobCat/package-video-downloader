@@ -32,14 +32,13 @@ frame_extractor = FrameExtractor(video_path, output_directory, quality, oneperfr
 frame_extractor.extract_frames()
 
 # Extract audio from the downloaded video
-if video_path:
-    output_audio_path = "audio/source.mp3"
-    extractor = AudioExtractor(video_path, output_audio_path)
-    extractor.extract_audio()
+output_audio_path = "audio/source.mp3"
+extractor = AudioExtractor(video_path, output_audio_path)
+extractor.extract_audio()
 
-    # Analyze the sound intervals
-    analyzer = SoundIntervalAnalyzer(output_audio_path)
-    analyzer.create_sound_intervals_json()
+# Analyze the sound intervals
+analyzer = SoundIntervalAnalyzer(output_audio_path)
+analyzer.create_sound_intervals_json()
 ```
 
 ## output json file extractor sound
@@ -52,6 +51,33 @@ if video_path:
   [4.690430839002268, 5.5495691609977325],
   [5.7817687074829935, 6.339047619047619]
 ]
+```
+
+## arguments functions
+
+```
+VideoDownloader:
+    -url (str): The URL of the video to be downloaded.
+    -output_path (str): The path where the downloaded video will be saved.
+    -name (str, optional): The name of the downloaded video file (default is "video.mp4").
+
+FrameExtractor:
+    -video_path (str): The path to the video file.
+    -output_directory (str): The directory where the extracted frames will be saved.
+    -quality (int, optional): The quality of the saved frames (default is 50).
+    -oneperframe (int, optional): The number of frames to skip between extractions (default is 25).
+
+AudioExtractor:
+    -video_path (str): The path to the video file.
+    -output_path (str): The path to save the extracted audio file.
+
+AudioExtractor:
+    -audio_path (str): Path to the audio file.
+    -n_fft (int, optional): Number of FFT points. Defaults to 2048.
+    -hop_length (int, optional): Number of samples between successive frames. Defaults to 512.
+    -threshold_db (float, optional): Threshold in decibels below which a frame is considered silence. Defaults to -40.
+    -min_silence_duration (float, optional): Minimum duration of silence in seconds to be considered as an interval. Defaults to 0.2.
+    -output_json (str, optional): Path to the output JSON file to save the sound intervals. Defaults to "sound_intervals.json".
 ```
 
 # License

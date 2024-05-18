@@ -2,6 +2,7 @@ import numpy as np
 import logging
 import librosa
 import json
+import os
 
 # Configurer le niveau de journalisation
 logging.basicConfig(
@@ -73,9 +74,12 @@ class SoundIntervalAnalyzer:
                         if end_silence - start_silence >= self.min_silence_duration:
                             sound_intervals.append((start_silence, end_silence))
                         start_silence = None
-            if self.output_json:
+
+            if not os.path.exists(self.output_json):
                 with open(self.output_json, "w") as json_file:
                     json.dump(sound_intervals, json_file, indent=2)
                 self.logger.info(f"Intervals are save {self.output_json}.")
+            else:
+                self.logger.info(f"file {self.output_json} already exists.")
         except Exception as e:
             self.logger.error(f"Error when analysis : {e}")
