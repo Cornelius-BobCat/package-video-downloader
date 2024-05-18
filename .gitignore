@@ -2,6 +2,6 @@
 setup.py
 dist/*
 build/*
-youtube_video_analyzer.egg-info/*
+youtube_video_analyzer.egg-info
 *.log
 *.tmp
