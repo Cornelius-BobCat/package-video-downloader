@@ -21,7 +21,7 @@ You can install youtube-video-analyzer from PyPI using `pip install youtube-vide
 Here's an example of how to use the package:
 
 ```python
-from youtube_video_analyzer import VideoDownloader, AudioExtractor, SoundIntervalAnalyzer, FrameExtractor
+from youtube_video_analyzer import VideoDownloader, AudioExtractor, SoundIntervalAnalyzer, FrameExtractor, FaceDetection
 
 # Download a video from YouTube
 downloader = VideoDownloader(video_url, output_directory)
@@ -39,6 +39,13 @@ extractor.extract_audio()
 # Analyze the sound intervals
 analyzer = SoundIntervalAnalyzer(output_audio_path)
 analyzer.create_sound_intervals_json()
+
+# Analyze the face frames
+folder_path = "frames/"
+output_file = "resultats.json"
+face_detection = FaceDetection(folder_path, output_file)
+face_detection.detect_faces()
+
 ```
 
 ## output json file extractor sound
@@ -51,6 +58,47 @@ analyzer.create_sound_intervals_json()
   [4.690430839002268, 5.5495691609977325],
   [5.7817687074829935, 6.339047619047619]
 ]
+```
+
+## output json file extractor face
+
+```json
+{
+        "image_frame": "frame_2760.jpg",
+        "num_faces": 1,
+        "faces": [
+            {
+                "x": 31,
+                "y": 113,
+                "width": 95,
+                "height": 95
+            }
+        ]
+    },
+    {
+        "image_frame": "frame_3480.jpg",
+        "num_faces": 3,
+        "faces": [
+            {
+                "x": 99,
+                "y": 55,
+                "width": 44,
+                "height": 44
+            },
+            {
+                "x": 298,
+                "y": 89,
+                "width": 51,
+                "height": 51
+            },
+            {
+                "x": 176,
+                "y": 47,
+                "width": 45,
+                "height": 45
+            }
+        ]
+    },
 ```
 
 ## arguments functions
@@ -78,6 +126,28 @@ AudioExtractor:
     -threshold_db (float, optional): Threshold in decibels below which a frame is considered silence. Defaults to -40.
     -min_silence_duration (float, optional): Minimum duration of silence in seconds to be considered as an interval. Defaults to 0.2.
     -output_json (str, optional): Path to the output JSON file to save the sound intervals. Defaults to "sound_intervals.json".
+
+FaceDetection
+    - folder_path (str): Path to the folder containing the images.
+    - output_file (str, optional): Path to the output JSON file to save the results of face detection. Defaults to "results.json".
+
+```
+
+# MAJ
+
+| version | Maj Date   | desc                   |
+| ------- | ---------- | ---------------------- |
+| 0.3.4   | 2024-05-31 | Add a recognition face |
+
+# Contribute
+
+build you're package in local for try
+
+```bash
+python setup.py sdist bdist_wheel
+pip install --upgrade .
+#or
+pip install .
 ```
 
 # License
